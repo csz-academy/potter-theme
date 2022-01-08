@@ -25,6 +25,10 @@ jobs:
         with:
           ruby-version: 3.0
           bundler-cache: true
+      - uses: actions/setup-node@main
+      - name: NPM Build
+        run: |
+          npm run build
       - name: Run tests
         run: |
           echo "TODO: There should be an example site to test the theme against - maybe CSZ Acadamy as a submodule?"
