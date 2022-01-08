@@ -28,3 +28,6 @@ exclude:
   - "_sass/README.md"
   - "assets/README.md"
   - vendor
+
+plugins:
+ - jekyll-feed

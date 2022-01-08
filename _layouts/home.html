@@ -9,6 +9,7 @@ layout: default
 
   {{ content }}
 
+  {% assign posts = site.posts %}
   {%- if posts.size > 0 -%}
     {%- if page.list_title -%}
       <h2 class="post-list-heading">{{ page.list_title }}</h2>
@@ -16,7 +17,7 @@ layout: default
     <ul class="post-list">
       {%- for post in posts -%}
       <li>
-        <span class="post-meta">{{ post.date }}</span>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
         <h3>
           <a class="post-link" href="{{ post.url | relative_url }}">
             {{ post.title | escape }}
@@ -25,6 +26,7 @@ layout: default
       </li>
       {%- endfor -%}
     </ul>
+
   {%- endif -%}
 
 </div>
