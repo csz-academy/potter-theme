@@ -22,3 +22,8 @@ exclude:
   - package-lock.json
   - webpack.config.js
   - potter-theme.gemspec
+  - "_posts/README.md"
+  - "_includes/README.md"
+  - "_layouts/README.md"
+  - "_sass/README.md"
+  - "assets/README.md"
