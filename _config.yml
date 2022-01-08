@@ -1,0 +1,24 @@
+title: potter-theme
+description: A Jekyll theme made by the awesome guy PoTTii for the CSZ Acadamy
+
+theme: null
+
+# debug:
+#   compress: true
+#   dist: false
+#   shortcodes: true
+
+readme_index:
+  with_frontmatter: true
+
+exclude:
+  - Makefile
+  - CNAME
+  - LICENSE
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - package.json
+  - package-lock.json
+  - webpack.config.js
+  - potter-theme.gemspec
