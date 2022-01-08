@@ -4,7 +4,7 @@ Gem::Specification.new do |spec|
   spec.name     = "potter"
   spec.version  = "0.0.1"
 
-  spec.authors = [ "thescarwolf" ]
+  spec.authors = [ "Scarwolf" ]
   spec.summary  = "A Jekyll Theme by PoTTii made for the CSZ Academy"
   spec.homepage = "https://github.com/csz-academy/potter-theme"
 
