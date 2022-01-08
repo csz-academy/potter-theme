@@ -1,33 +1,31 @@
 ---
 layout: default
 ---
-<article itemscope itemtype="http://schema.org/BlogPosting">
 
+<article itemscope itemtype="http://schema.org/BlogPosting">
   <header>
     <h1 itemprop="name headline">{{ page.title | escape }}</h1>
     <p>
-      <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+      <time
+        datetime="{{ page.date | date_to_xmlschema }}"
+        itemprop="datePublished"
+      >
         {{ page.date | date: "%b %-d, %Y" }}
       </time>
-      {%- if page.modified_date -%}
-        ~
-        {%- assign mdate = page.modified_date | date_to_xmlschema -%}
-        <time datetime="{{ mdate }}" itemprop="dateModified">
-          {{ mdate | date: "%b %-d, %Y" }}
-        </time>
-      {%- endif -%}
-      {%- if page.author -%}
-        • {% for author in page.author %}
-          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-            <span itemprop="name">{{ author }}</span></span>
-            {%- if forloop.last == false %}, {% endif -%}
-        {% endfor %}
-      {%- endif -%}</p>
+      {%- if page.modified_date -%} ~ {%- assign mdate = page.modified_date |
+      date_to_xmlschema -%}
+      <time datetime="{{ mdate }}" itemprop="dateModified">
+        {{ mdate | date: "%b %-d, %Y" }}
+      </time>
+      {%- endif -%} {%- if page.author -%} • {% for author in page.author %}
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">{{ author }}</span></span
+      >
+      {%- if forloop.last == false %}, {% endif -%} {% endfor %} {%- endif -%}
+    </p>
   </header>
 
-  <div itemprop="articleBody">
-    {{ content }}
-  </div>
+  <div itemprop="articleBody">{{ content }}</div>
 
   <a href="{{ page.url | relative_url }}" hidden></a>
 </article>

@@ -4,29 +4,21 @@ layout: default
 
 <div>
   {%- if page.title -%}
-    <h1>{{ page.title }}</h1>
+  <h1>{{ page.title }}</h1>
+  {%- endif -%} {{ content }} {% assign posts = site.posts %} {%- if posts.size
+  > 0 -%} {%- if page.list_title -%}
+  <h2>{{ page.list_title }}</h2>
   {%- endif -%}
-
-  {{ content }}
-
-  {% assign posts = site.posts %}
-  {%- if posts.size > 0 -%}
-    {%- if page.list_title -%}
-      <h2>{{ page.list_title }}</h2>
-    {%- endif -%}
-    <ul>
-      {%- for post in posts -%}
-      <li>
-        <span>{{ post.date | date: "%b %-d, %Y" }}</span>
-        <h3>
-          <a href="{{ post.url | relative_url }}">
-            {{ post.title | escape }}
-          </a>
-        </h3>
-      </li>
-      {%- endfor -%}
-    </ul>
+  <ul>
+    {%- for post in posts -%}
+    <li>
+      <span>{{ post.date | date: "%b %-d, %Y" }}</span>
+      <h3>
+        <a href="{{ post.url | relative_url }}"> {{ post.title | escape }} </a>
+      </h3>
+    </li>
+    {%- endfor -%}
+  </ul>
 
   {%- endif -%}
-
 </div>

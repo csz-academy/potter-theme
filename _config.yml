@@ -20,7 +20,6 @@ exclude:
   - node_modules
   - package.json
   - package-lock.json
-  - webpack.config.js
   - potter-theme.gemspec
   - "_posts/README.md"
   - "_includes/README.md"
@@ -30,9 +29,8 @@ exclude:
   - vendor
   - src
   - tailwind.config.js
-  - gulpfile.babel.js
   - potter.gemspec
   - README.md
 
 plugins:
- - jekyll-feed
+  - jekyll-feed

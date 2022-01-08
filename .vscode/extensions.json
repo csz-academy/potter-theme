@@ -1,6 +1,3 @@
 {
-    "recommendations": [
-        "yzhang.markdown-all-in-one",
-        "sissel.shopify-liquid"
-    ]
+  "recommendations": ["yzhang.markdown-all-in-one", "sissel.shopify-liquid"]
 }
