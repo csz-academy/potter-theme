@@ -1,15 +1,38 @@
 {
+  "name": "potter-theme",
+  "version": "0.1.0",
+  "main": "gulpfile.babel.js",
   "scripts": {
     "report": "lighthouse http://127.0.0.1:4000",
-    "build": "webpack --mode production",
-    "format": "prettier . --check --write"
+    "format": "prettier . --check --write",
+    "build:production": "cross-env NODE_ENV=production gulp",
+    "build:dev": "cross-env NODE_ENV=development gulp",
+    "build": "npm run build:production",
+    "dev": "cross-env NODE_ENV=development gulp serve",
+    "start": "npm run dev"
   },
   "dependencies": {
-
+    "cssnano": "^5.0.15",
+    "postcss-cli": "^9.1.0",
+    "postcss-import": "14.0.2"
   },
   "devDependencies": {
+    "babel-preset-env": "1.7.0",
+    "babel-register": "6.26.0",
+    "browser-sync": "2.27.7",
+    "browsersync": "0.0.1-security",
+    "cross-env": "7.0.3",
+    "cross-spawn": "7.0.3",
+    "cssnano": "5.0.15",
+    "gulp": "4.0.2",
+    "gulp-postcss": "9.0.1",
+    "postcss-import": "14.0.2",
+    "autoprefixer": "^10.4.2",
+    "concurrently": "^7.0.0",
     "lighthouse": "^9.2.0",
+    "postcss": "^8.4.5",
     "prettier": "^2.5.1",
+    "tailwindcss": "^3.0.12",
     "webpack": "^5.65.0",
     "webpack-cli": "^4.9.1"
   }
