@@ -3,8 +3,6 @@ description: A Jekyll theme made by the awesome guy PoTTii for the CSZ Acadamy
 baseurl: ""
 url: https://csz-academy.github.io/potter-theme
 
-theme: null
-
 # debug:
 #   compress: true
 #   dist: false
