@@ -7,15 +7,18 @@
     "format": "prettier . --check --write",
     "jekyll:dev": "bundle exec jekyll serve --incremental --watch",
     "jekyll:build": "bundle exec jekyll build",
-    "build:production": "npx tailwindcss -i ./src/style.css -o ./assets/css/potter/main.css --minify",
-    "build:dev": "npx tailwindcss -i ./src/style.css -o ./assets/css/potter/main.css --watch",
+    "build:production": "cross-env NODE_ENV=production npx postcss ./src/style.css -o ./assets/css/potter/main.css",
+    "build:dev": "npx postcss ./src/style.css -o ./assets/css/potter/main.css --watch",
     "build": "npm run build:production",
-    "watch": "concurrently -k -p \"[{name}]\" -n \"Jekyll,Tailwind\" -c \"green.bold,cyan.bold\" \"npm run jekyll:dev\" \"npm run build:dev\""
+    "watch": "concurrently -k -p \"[{name}]\" -n \"Jekyll,PostCSS\" -c \"green.bold,cyan.bold\" \"npm run jekyll:dev\" \"npm run build:dev\""
   },
-  "dependencies": {},
   "devDependencies": {
+    "autoprefixer": "^10.4.2",
     "concurrently": "^7.0.0",
+    "cross-env": "^7.0.3",
+    "cssnano": "^5.0.15",
     "lighthouse": "^9.2.0",
+    "postcss-cli": "^9.1.0",
     "prettier": "^2.5.1",
     "tailwindcss": "^3.0.12"
   }

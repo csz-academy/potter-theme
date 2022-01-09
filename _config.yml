@@ -8,6 +8,8 @@ url: https://csz-academy.github.io
 #   dist: false
 #   shortcodes: true
 
+theme: null
+
 potter:
   banner: /assets/csz.png
 
