@@ -6,8 +6,14 @@ layout: default
 {% assign posts = site.posts %}
 
 {% assign highlighted_post = posts | first %}
+{% assign non_highlighted_posts = posts | slice: 1 %}
 {% include highlighted-post.html %}
 
-{%- for post in posts | slice: 1 -%}
-{%- endfor -%}
+<!-- Post Grid -->
+<div class="mx-4 lg:mx-0 grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-16 mt-8 lg:mt-24">
+  {%- for post in non_highlighted_posts -%}
+    {% include post-item.html %}
+  {%- endfor -%}
+</div>
+
 </div>

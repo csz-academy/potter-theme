@@ -1,0 +1,48 @@
+<div class="rounded-xl flex flex-col group bg-zinc-800">
+  <div href="{{ post.url | relative_url }}" class="flex-shrink-0 w-full object-contain overflow-hidden rounded-t-xl">
+      <!-- TODO: Grab a proper image -->
+      <img src="https://loremflickr.com/300/150/programming?random=1" class="rounded-t-xl transition group-hover:scale-110 duration-125 h-56 w-full z-0" alt="Hurensohn">
+  </div>
+
+  <div class="h-full flex flex-col px-6 py-6">
+      <div class="text-gray-300 text-sm">
+          <div class="flex items-center gap-x-4">
+            <!-- Date -->
+            <span>{{ post.date | date_to_long_string }}</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+
+            <!-- Authors -->
+            {% assign authors = post.authors %}
+            {%- if authors.size > 0 -%}
+              {% assign first_acronym = authors | first %}
+              {% assign primary_author = site.members | where: 'acronym', first_acronym | first %}
+              <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                <spanitemprop="name"><a href="{{ primary_author.url }}">{{ primary_author.display_name }}</a></span>
+              </span>
+                {%- if authors.size > 1 -%}
+                <div class="py-0.5 px-1.5 text-sm bg-zinc-900 rounded-md">
+                  +{{ authors.size | minus: 1 }}
+                </div>
+                {%- endif -%}
+            {%- endif -%}
+          </div>
+      </div>
+
+      <!-- Title -->
+      <a href="{{ post.url | relative_url }}" class="no-underline flex-grow py-4 text-2xl text-white font-semibold tracking-wide group-hover:text-emerald-300 cursor-pointer font-title">
+        {{ post.title | escape }}
+      </a>
+
+
+      <!-- Tag List -->
+      {% if post.tags.size > 0 %}
+      <div class="flex flex-wrap gap-x-3 gap-y-5 mt-4">
+          {%- for tag in post.tags -%}
+          <div class="px-3 py-1 cursor-pointer bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 font-bolder rounded-full text-sm font-medium text-gray-700">
+              {{ tag }}
+          </div>
+          {%- endfor -%}
+      </div>
+      {% endif %}
+  </div>
+</div>
