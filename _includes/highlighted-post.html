@@ -56,7 +56,7 @@
               {% if highlighted_post.abstract %}
                 {{ highlighted_post.abstract }}
               {% else %}
-                {{ highlighted_post.content | truncatewords: 40 | replace: "`", "" | escape }}
+                {{ highlighted_post.content | truncatewords: 40 | escape }}
               {% endif %}
           </div>
 
