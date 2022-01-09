@@ -34,3 +34,7 @@ exclude:
 
 plugins:
   - jekyll-feed
+
+collections:
+  members:
+    output: true

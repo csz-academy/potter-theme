@@ -1,0 +1,5 @@
+<div class="flex flex-wrap gap-x-3 gap-y-5 ">
+  {% for chip in chips %}
+    {%- include chip.html content="{{ chip }}" %}
+  {% endfor %}
+</div>

@@ -1,0 +1,69 @@
+<div class="mx-4 lg:mx-0 flex flex-col lg:flex-row items-center bg-transparent lg:bg-zinc-800 rounded-3xl">
+
+  <div class="w-full lg:w-3/5 object-contain overflow-hidden box-shadow shadow-teal-300">
+    <!-- TODO: Grab a proper image -->
+    <img src="https://loremflickr.com/800/600/programming?random=1" class="rounded-xl lg:rounded-none lg:rounded-l-3xl transition group-hover:scale-110 duration-125 h-full w-full z-0" alt="Hurensohn">
+  </div>
+
+  <div class="w-full lg:w-2/5 px-4 py-8 lg:p-0">
+      <div class="flex items-center lg:items-start flex-col gap-y-8 lg:pl-12 lg:pr-8 lg:py-8">
+          <div class="text-gray-300 text-lg">
+              <div class="flex items-center gap-x-4">
+                  <!-- TODO: Probably needs some date formatting -->
+                  <!-- Date -->
+                  <span>{{ highlighted_post.date | date_to_long_string }}</span>
+
+                  <div class="w-1.5 h-1.5 rounded-full bg-teal-500"></div>
+
+                  <!-- Authors -->
+                  <div class="flex gap-x-3 items-center">
+                  {% assign authors = highlighted_post.authors %}
+                  {%- if authors.size > 0 -%}
+                  {% assign first_acronym = authors | first %}
+                  {% assign primary_author = site.members | where: 'acronym', first_acronym | first %}
+                  <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                    <spanitemprop="name"><a href="{{ primary_author.url }}">{{ primary_author.display_name }}</a></span>
+                  </span>
+                  {%- if authors.size > 1 -%}
+                  <div class="py-0.5 px-1.5 text-sm bg-zinc-900 rounded-md">
+                    +{{ authors.size | minus: 1 }}
+                  </div>
+                  {%- endif -%}
+                  {%- endif -%}
+                </div>
+              </div>
+          </div>
+          <!-- Tag List -->
+          {% if highlighted_post.tags.size > 0 %}
+          <div class="flex flex-wrap gap-x-3 gap-y-5 ">
+              {%- for tag in highlighted_post.tags -%}
+              <div class="px-3 py-1 cursor-pointer bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 font-bolder rounded-full text-sm font-medium text-gray-700">
+                  {{ tag }}
+              </div>
+              {%- endfor -%}
+          </div>
+          {% endif %}
+
+          <!-- Title -->
+          <div class="text-center lg:text-left text-5xl text-white font-semibold font-title tracking-wide">
+            {{ highlighted_post.title | escape }}
+          </div>
+
+          <!-- TODO: Grab the abstract -->
+          <!-- Abstract -->
+          <div class="text-center lg:text-left text-zinc-400">
+
+              {% if highlighted_post.abstract %}
+                {{ highlighted_post.abstract }}
+              {% else %}
+                {{ highlighted_post.content | truncatewords: 40 | replace: "`", "" | escape }}
+              {% endif %}
+          </div>
+
+          <!-- Button -->
+          <a href="{{ highlighted_post.url | relative_url }}" class="no-underline w-max bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-teal-400 hover:to-emerald-400 rounded-full py-5 px-6 font-medium cursor-pointer shadow-lg ring-4 ring-transparent hover:ring-teal-900 text-black hover:text-gray-800">
+              Continue Reading
+          </a>
+      </div>
+  </div>
+</div>
